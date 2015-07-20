@@ -1,0 +1,12 @@
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.dll.config
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.dll
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.pdb
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.dll
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.pdb
+C:\Users\Byco\Documents\Visual Studio 2013\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.csprojResolveAssemblyReference.cache
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.dll.config
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.dll
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\bin\ShoppingStore.pdb
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.csprojResolveAssemblyReference.cache
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.dll
+C:\Users\maykol\Documents\Software deveploment\Asp .net\Projects\ShoppingStore\ShoppingStore\obj\Debug\ShoppingStore.pdb

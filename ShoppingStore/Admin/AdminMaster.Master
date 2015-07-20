@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="ShoppingStore.Admin.AdminMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table align="center" style="width: 900px;">
+            <tr>
+                <table align="center" style="border-bottom-style: ridge; border-width: medium; width: 900px; border-color: #9933FF; border: thin ridge #9900FF;">
+                    <tr>
+                        <td align="center">
+                            <asp:Image ID="Image1" runat="server" Height="67px" Width="57px" ImageUrl="~/Images/ShoppingCartProject.png"/>
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:LinkButton ID="lblLogo" runat="server" Text="ShoppingHeart" Font-Names="Eras Demi ITC" Font-Size="20px" ForeColor="#6600CC"></asp:LinkButton>
+                            <br />
+                            For those who love shopping...!
+                        </td>
+                        <td align="center">
+                            <asp:Image ID="Image2" runat="server" Height="81px" Width="100px" ImageUrl="~/Images/icon_admin.png"/>
+                        </td>
+                    </tr>
+                </table>
+            </tr>
+                
+            <tr>
+                <td>
+                    <table  align="center" style="border: thin ridge #9900FF; width:900px;">
+                        <tr>
+                            <td class="style2">
+                                <a href="AddEditCategory.aspx">Category</a>&nbsp; 
+                                <a href="AddNewProducts.aspx">Products</a>
+                                <a href="#">CustomerOrders</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+    
+            <tr>
+                <td>
+                        <table align="center" style="border: thin ridge #9900FF; width:900px;">
+                            <tr>
+                                <td class="style2" valign="top">
+                                    <asp:Panel ID="pnlCategories" runat="server">
+                                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </asp:Panel>
+
+                                </td>
+                            </tr>
+                        </table>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+</html>

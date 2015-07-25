@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/AdminMaster.Master" AutoEventWireup="true" CodeBehind="AddNewProducts.aspx.cs" Inherits="ShoppingStore.Admin.AddNewProducts" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 <div align="center">
@@ -97,6 +96,21 @@
 		<td style"width: 50%; align="left">
 			&nbsp;
 		</td>
+	</tr>
+
+	<tr>
+		<td style"width: 50%; padding-left: 100px;" align="left">
+			Product Quantity</td>
+		<td style"width: 50%; align="left">
+			<asp:TextBox ID="txtProductQuantity" runat="server" Width="208px"></asp:TextBox>
+		</td>
+	</tr>
+
+	<tr>
+		<td style"width: 50%; padding-left: 100px;" align="left">
+			&nbsp;</td>
+		<td style"width: 50%; align="left">
+			&nbsp;</td>
 	</tr>
 
 	<tr>

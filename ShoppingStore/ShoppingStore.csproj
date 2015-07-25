@@ -61,6 +61,7 @@
     <Content Include="Admin\AddNewProducts.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\EmtyShoppingCart.bmp" />
     <Content Include="Images\icon_admin.png" />
     <Content Include="Images\shopping-cart-icon.png" />
     <Content Include="Images\shoppingCart.jpg" />

@@ -16,7 +16,24 @@ namespace ShoppingStore.Admin
             if(!IsPostBack)
             {
                 GetCategories();
+
+                addSubmitEvent();
+
+                if(Request.QueryString["alert"] == "success")
+                {
+                    Response.Write("<script>alert('Record Saved Succesfully');</script>");
+                }
             }
+
+        }
+
+        public void addSubmitEvent()
+        {
+            UpdatePanel updatePanel = Page.Master.FindControl("AdminUpdatePanel") as UpdatePanel;
+            UpdatePanelControlTrigger trigger = new PostBackTrigger();
+            trigger.ControlID = btnSubmit.UniqueID;
+
+            updatePanel.Triggers.Add(trigger);
         }
 
         private void GetCategories()
@@ -45,7 +62,9 @@ namespace ShoppingStore.Admin
                     ProductImage = "~/ProductImages/" + uploadProductPhoto.FileName,
                     ProductPrice = txtProductPrice.Text,
                     ProductDescription = txtProductDescription.Text,
-                    CategoryID = Convert.ToInt32(ddlCategory.SelectedValue)
+                    CategoryID = Convert.ToInt32(ddlCategory.SelectedValue),
+                    ProductoQuantity = Convert.ToInt32(txtProductQuantity.Text)
+
                 };
                 k.AddNewProduct();
                 ClearText();

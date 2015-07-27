@@ -71,7 +71,7 @@
                                         <asp:Image ID="Image2" runat="server" Height="53px" ImageUrl="~/Images/shopping-cart-icon.png" Width="70px"/>
                                     </td>
                                     <td align="left">
-                                        <asp:LinkButton ID="btnShoppingHeart" runat="server" Font-Underline="false" Font-Size="20pt" ForeColor="Red">0</asp:LinkButton>
+                                        <asp:LinkButton ID="btnShoppingHeart" runat="server" Font-Underline="false" Font-Size="20pt" ForeColor="Red" OnClick="btnShoppingHeart_Click">0</asp:LinkButton>
                                     </td>
                                 </tr>
                                 <caption>
@@ -117,17 +117,19 @@
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    Price $<asp:Label ID="lblPrice" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
+                                                                    Price ₡<asp:Label ID="lblPrice" runat="server" Text='<%# Bind("Price") %>'></asp:Label>
+                                                                    <img id="imgStar" runat="server" src='~/Images/green_star.png' height="10" width="10" visible="False"  /> 
+
                                                                     Stock: &nbsp;
                                                                     <asp:Label ID="lblAvailableStock" runat="server" Text='<%# Eval("AvailableStock") %>'
                                                                     ToolTip="Available Stock" ForeColor="Red" Font-Bold="true"></asp:Label>
-                                                                    <asp:HiddenField ID="hfProductID" runat="server" Value='<%# Eval("AvailableStock") %>' />
+                                                                    <asp:HiddenField ID="hfProductID" runat="server" Value='<%# Eval("ProductID") %>' />
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <asp:Button ID="Button1" runat="server" BorderColor="Black" BorderStyle="Inset" BorderWidth="1px" 
-                                                                    Text="Add to Cart" Width="100%" CommandArgument='<%# Bind("ProductId") %>'/>
+                                                                    <asp:Button ID="btnAddToCart" runat="server" BorderColor="Black" BorderStyle="Inset" BorderWidth="1px" 
+                                                                    Text="Add to Cart" Width="100%" CommandArgument='<%# Bind("ProductId") %>' OnClick="Button1_Click"/>
                                                                  
                                                                 </td>
                                                             </tr>
@@ -137,52 +139,53 @@
                                             </asp:DataList>
                                         </asp:Panel>
                                         <asp:Panel ID="pnlMyCart" runat="server" ScrollBars="Auto" Height="500px" BorderColor="Black"
-                                        BorderStyle="Inset" BorderWidth="1px" Visible="false"> 
+                                        BorderStyle="Inset" BorderWidth="1px" Visible="False"> 
                                             <table align="center" cellspacing="1">
-                                                <tr align="center">
-                                                    <asp:Label ID="lblAvailableStockAlert" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
-                                                    <asp:DataList ID="dtCartProducts" RepeatColumns="3" runat="server" Font-Bold="false"
-                                                     width="551px">
-                                                        <ItemTemplate>
-                                                           <div align="left">
-                                                               <table cellspacing="1" style="border: 1px ridge #99FFCC; text-align:center; width: 172px">
-                                                                   <tr>
-                                                                       <td style="border-bottom-style:ridge; border-width: 1px; border-color: #000000">
-                                                                           <asp:Label ID="lblProductName" runat="server" Text='<% Eval("Name") %>' style="font-weight: 700"></asp:Label>
-                                                                       </td>
-                                                                   </tr>
-                                                                   <tr>
-                                                                       <td>
-                                                                           <img alt="" scr='<% Eval("ImageUrl") %>' ID="imgProductPhoto" runat="server" style="border: ridge 1px black; width: 157px; height: 130px"/>
-                                                                       </td>
-                                                                   </tr>
-                                                                   <tr>
-                                                                       <td>
-                                                                           AvailableStock:&nbsp;
-                                                                           <asp:Label ID="lblAvailableStock" runat="server" Text='<% Eval("AvailableStock") %>' 
-                                                                           ToolTip="Available Stock" ForeColor="Red" Font-Bold="true"></asp:Label>
-                                                                           &nbsp;&nbsp; <br>
-                                                                            Price:<asp:Label ID="lblPrice" runat="server" Text='<% Eval("Price") %>'></asp:Label>
-                                                                           <asp:TextBox ID="txtProductQuantity" runat="server" Width="10px" Height="10px" MaxLength="1"
-                                                                            OnTextChanged="txtProductQuantity_TextChanged" AutoPostBack="true" Text='<% Eval("ProductQuantity") %>'></asp:TextBox>
-                                                                           <asp:HiddenField ID="hfProductID" runat="server" Value='<% Eval("ProductID") %>'/>
-                                                                       </td>
-                                                                   </tr>
-                                                                   <tr>
-                                                                       <td>
-                                                                           <br>
+                                                <tr>
+                                                    <td align="center">
+                                                        <asp:Label ID="lblAvailableStockAlert" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                                        <asp:DataList ID="dlCartProducts" RepeatColumns="3" runat="server" Font-Bold="false"
+                                                         width="551px">
+                                                            <ItemTemplate>
+                                                               <div align="left">
+                                                                   <table cellspacing="1" style="border: 1px ridge #99FFCC; text-align:center; width: 172px">
+                                                                       <tr>
+                                                                           <td style="border-bottom-style:ridge; border-width: 1px; border-color: #000000">
+                                                                               <asp:Label ID="lblProductName" runat="server" Text='<%# Eval("Name") %>' style="font-weight: 700"></asp:Label>
+                                                                           </td>
+                                                                       </tr>
+                                                                       <tr>
+                                                                           <td>
+                                                                               <img id="imgProductPhoto" runat="server" src='<%# Bind("ImageUrl") %>' style="border: ridge 1px black; width: 157px; height: 130px"/>
+                                                                                </td>
+                                                                       </tr>
+                                                                       <tr>
+                                                                           <td>
+                                                                               AvailableStock:&nbsp;
+                                                                               <asp:Label ID="lblAvailableStock" runat="server" Text='<%# Eval("AvailableStock") %>' 
+                                                                               ToolTip="Available Stock" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                                                               &nbsp;&nbsp; <br>
+                                                                                Price:<asp:Label ID="lblPrice" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                                                                               <asp:TextBox ID="txtProductQuantity" runat="server" Width="10px" Height="10px" MaxLength="1"  OnTextChanged="txtProductQuantity_TextChanged" AutoPostBack="true" Text='<%# Eval("ProductQuantity") %>'></asp:TextBox>
+                                                                               <asp:HiddenField ID="hfProductID" runat="server" Value='<%# Eval("ProductID") %>'/>
+                                                                           </td>
+                                                                       </tr>
+                                                                       <tr>
+                                                                           <td>
+                                                                               <br>
                                                                            
-                                                                           <asp:Button ID="btnRemoveFromCart" runat="server" CommandArgument='<% Eval("ProductID") %>'
-                                                                           Text="Remove from Cart" Width="100%" BorderColor="Black" BorderStyle="Inset" BorderWidth="1px"
-                                                                           OnClick="btnRemoveFromCart_Click" CausesValidation="false"/>
-                                                                       </td>
-                                                                   </tr>
+                                                                               <asp:Button ID="btnRemoveFromCart" runat="server" CommandArgument='<%# Eval("ProductID") %>'
+                                                                               Text="Remove from Cart" Width="100%" BorderColor="Black" BorderStyle="Inset" BorderWidth="1px"
+                                                                               OnClick="btnRemoveFromCart_Click" CausesValidation="false"/>
+                                                                           </td>
+                                                                       </tr>
 
-                                                               </table>
-                                                           </div>
-                                                        </ItemTemplate>
-                                                        <ItemStyle width="33%"/>
-                                                    </asp:DataList>
+                                                                   </table>
+                                                               </div>
+                                                            </ItemTemplate>
+                                                            <ItemStyle width="33%"/>
+                                                        </asp:DataList>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center">
@@ -198,7 +201,7 @@
                                         </asp:Panel>
                                     </td>
                                     <td class="style3" valign="top" align="center">
-                                        <asp:Panel ID="plnCategories" runat="server" ScrollBars="Auto" Height="500px" BorderColor="Black"
+                                        <asp:Panel ID="pnlCategories" runat="server" ScrollBars="Auto" Height="500px" BorderColor="Black"
                                          BorderStyle="Inset" BorderWidth="1px">
                                             <asp:DataList ID="dlCategories" runat="server" BackColor="White" BorderColor="#CCCCCC"
                                             BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal"
@@ -213,8 +216,8 @@
                                             </asp:DataList>
                                         </asp:Panel>
                                         <asp:Panel ID="pnlCheckOut" runat="server" ScrollBars="Auto" Height="500px" BorderColor="Black"
-                                        BorderStyle="Inset" BorderWidth="1px" Visible="false">
-                                            <table style="width: 258px;">
+                                        BorderStyle="Inset" BorderWidth="1px" Visible="False">
+                                            <table>
                                                 <tr>
                                                     <td align="left">
                                                         Name:
@@ -355,7 +358,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2" align="center" style="border: thin ridge #9900FF">
-                                        &nbsp;&copy;<a href="#">Copyright</a>
+                                        &nbsp;&copy;<a href="#">Copyright - Maykol Alvarado P</a>
                                         || <a href="Admin/Login.aspx" target="_blank">Admin Panel </a>
                                         || <a href="TrackYourOrder.aspx" target="_blank">Track your order </a>
                                     </td>

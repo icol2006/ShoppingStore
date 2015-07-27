@@ -139,22 +139,22 @@ namespace ShoppingStore {
         protected global::System.Web.UI.WebControls.Label lblAvailableStockAlert;
         
         /// <summary>
-        /// Control dtCartProducts.
+        /// Control dlCartProducts.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList dtCartProducts;
+        protected global::System.Web.UI.WebControls.DataList dlCartProducts;
         
         /// <summary>
-        /// Control plnCategories.
+        /// Control pnlCategories.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel plnCategories;
+        protected global::System.Web.UI.WebControls.Panel pnlCategories;
         
         /// <summary>
         /// Control dlCategories.

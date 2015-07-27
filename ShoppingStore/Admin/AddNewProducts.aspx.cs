@@ -66,7 +66,9 @@ namespace ShoppingStore.Admin
                     ProductoQuantity = Convert.ToInt32(txtProductQuantity.Text)
 
                 };
+                if(k!=null)
                 k.AddNewProduct();
+                k = null;
                 ClearText();
             }
         }
@@ -78,6 +80,7 @@ namespace ShoppingStore.Admin
             txtProductPrice.Text="";
             uploadProductPhoto = null;
             ddlCategory.SelectedIndex = 0;
+            txtProductQuantity.Text = "";
 
         }
         private void SaveProductPhoto()

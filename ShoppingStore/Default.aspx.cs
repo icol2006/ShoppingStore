@@ -113,6 +113,42 @@ namespace ShoppingStore
         protected void btnPlaceOrder_Click(object sender, EventArgs e)
         {
 
+            string productids = string.Empty;
+            DataTable dt;
+            if (Session["MyCart"] != null)
+            {
+                dt = (DataTable)Session["MyCart"];
+
+                ShoppingCart k = new ShoppingCart()
+                {
+                    CustomerName = txtCustomerName.Text,
+                    CustomerEmailID = txtCustomerEmailID.Text,
+                    CustomerAddres = txtCustomerAddress.Text,
+                    CustomerPhoneNo = txtCustomerPhoneNo.Text,
+                    TotalProducts = Convert.ToInt32(txtTotalProducts.Text),
+                    TotalPrice = Convert.ToInt32(txtTotalPrice.Text),
+                    PaymenMethod = rdlPaymentMethod.SelectedItem.Text
+                };
+
+                DataTable dtReult = k.SaveCustomerDetails();
+
+                for(int i=0; i<dt.Rows.Count;i++)
+                {
+                    ShoppingCart SaveProducts = new ShoppingCart()
+                    {
+                        CustomerID = Convert.ToInt32(dtReult.Rows[0][0]),
+                        ProductID = Convert.ToInt32(dt.Rows[0]["ProductID"]),
+                        TotalProducts = Convert.ToInt32(dt.Rows[1]["ProductQuantity"])
+                    };
+                    SaveProducts.SaveCustomerDetails();
+                }
+
+                 Session.Clear();
+                 GetMyCart();
+
+                 lblTransactionNo.Text = "Your Transaction No: " + dtReult.Rows[0][0];
+            }
+
 
         }
 

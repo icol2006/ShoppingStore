@@ -63,7 +63,7 @@ namespace ShoppingStore.Admin
                     ProductPrice = txtProductPrice.Text,
                     ProductDescription = txtProductDescription.Text,
                     CategoryID = Convert.ToInt32(ddlCategory.SelectedValue),
-                    ProductoQuantity = Convert.ToInt32(txtProductQuantity.Text)
+                    TotalProducts = Convert.ToInt32(txtProductQuantity.Text)
 
                 };
                 if(k!=null)

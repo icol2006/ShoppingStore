@@ -339,7 +339,7 @@
                                         </asp:Panel>
                                         <asp:Panel ID="pnlOrderPlacedSuccesfully" runat="server" Visible="false">
                                             <div style="text-align: center">
-                                                <asp:Image ID="Image5" runat="server" Height="200px" Width="500px"/><br />
+                                                <asp:Image ID="Image5" runat="server" Height="200px" Width="500px" ImageUrl="~/Images/happyshooping.png"/><br />
                                                     <label> 
                                                         Order placed succesfully
                                                     </label><br />

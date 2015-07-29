@@ -137,16 +137,30 @@ namespace ShoppingStore
                     ShoppingCart SaveProducts = new ShoppingCart()
                     {
                         CustomerID = Convert.ToInt32(dtReult.Rows[0][0]),
-                        ProductID = Convert.ToInt32(dt.Rows[0]["ProductID"]),
-                        TotalProducts = Convert.ToInt32(dt.Rows[1]["ProductQuantity"])
+                        ProductID = Convert.ToInt32(dt.Rows[i]["ProductID"]),
+                        TotalProducts = Convert.ToInt32(dt.Rows[i]["ProductQuantity"])
                     };
-                    SaveProducts.SaveCustomerDetails();
+                    SaveProducts.SaveCustomerProducts();
                 }
 
                  Session.Clear();
                  GetMyCart();
 
                  lblTransactionNo.Text = "Your Transaction No: " + dtReult.Rows[0][0];
+
+                 pnlOrderPlacedSuccesfully.Visible = true;
+                 pnlCheckOut.Visible = false;
+                 pnlCategories.Visible = false;
+                 pnlMyCart.Visible = false;
+                 pnlEmptyCart.Visible = false;
+                 pnlProducts.Visible = false;
+
+                 txtCustomerAddress.Text = string.Empty;
+                 txtCustomerEmailID.Text = string.Empty;
+                 txtCustomerName.Text = string.Empty;
+                 txtCustomerPhoneNo.Text = string.Empty;
+                 txtTotalPrice.Text = "0";
+                 txtTotalProducts.Text = "0";
             }
 
 

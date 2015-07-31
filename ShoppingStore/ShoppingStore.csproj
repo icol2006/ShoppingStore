@@ -60,6 +60,7 @@
     <Content Include="Admin\AddEditCategory.aspx" />
     <Content Include="Admin\AddNewProducts.aspx" />
     <Content Include="Admin\Login.aspx" />
+    <Content Include="Admin\Category.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\EmtyShoppingCart.bmp" />
     <Content Include="Images\green_star.png" />
@@ -68,7 +69,10 @@
     <Content Include="Images\shopping-cart-icon.png" />
     <Content Include="Images\shoppingCart.jpg" />
     <Content Include="Images\ShoppingCartProject.png" />
-    <Content Include="Web.config" />
+    <Content Include="OrderTemplate.htm" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin\AddEditCategory.aspx.cs">
@@ -100,6 +104,13 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="BussinesLayer\ShoppingCart.cs" />
+    <Compile Include="Admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DataLayer\DataAccess.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -108,6 +119,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmailEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -154,6 +155,8 @@ namespace ShoppingStore
                  pnlMyCart.Visible = false;
                  pnlEmptyCart.Visible = false;
                  pnlProducts.Visible = false;
+
+                 SendOrderPlaceAlert(txtCustomerName.Text, txtCustomerEmailID.Text, Convert.ToString(dtReult.Rows[0][0]));
 
                  txtCustomerAddress.Text = string.Empty;
                  txtCustomerEmailID.Text = string.Empty;
@@ -356,5 +359,24 @@ namespace ShoppingStore
             txtTotalProducts.Text = Convert.ToString(TotalProducts);
         }
 
+        private string PopulateOrderEmailBody(string customerName, string transaction)
+        {
+            string body = string.Empty;
+            using (StreamReader reader = new StreamReader(Server.MapPath("~/OrderTemplate.htm")))
+            {
+                body = reader.ReadToEnd();
+            }
+            body = body.Replace("{CustomerName}",customerName);
+            body = body.Replace("{OrderNo}", transaction);
+            body = body.Replace("{TransactionURL}", "http://www.ShoppingHeart.com?trackYourOrder.aspxId="+ transaction);
+            return body;
+        }
+
+        private void SendOrderPlaceAlert(string customerName, string customerEmailID, string TransationNo)
+        {
+            string body = this.PopulateOrderEmailBody(customerName, TransationNo);
+
+            EmailEngine.SendEmail(customerEmailID, "Shopping Heart -- Your OrderDetail", body);
+        }
     }
 }

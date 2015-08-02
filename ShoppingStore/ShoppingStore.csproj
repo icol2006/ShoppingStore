@@ -59,8 +59,12 @@
   <ItemGroup>
     <Content Include="Admin\AddEditCategory.aspx" />
     <Content Include="Admin\AddNewProducts.aspx" />
+    <Content Include="Admin\CustomerOrders.aspx" />
+    <Content Include="Admin\IncomeReport.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\Products.aspx" />
+    <Content Include="Admin\ProductStock.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\EmtyShoppingCart.bmp" />
     <Content Include="Images\green_star.png" />
@@ -96,12 +100,40 @@
     <Compile Include="Admin\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Admin\CustomerOrders.aspx.cs">
+      <DependentUpon>CustomerOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\CustomerOrders.aspx.designer.cs">
+      <DependentUpon>CustomerOrders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\IncomeReport.aspx.cs">
+      <DependentUpon>IncomeReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\IncomeReport.aspx.designer.cs">
+      <DependentUpon>IncomeReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Products.aspx.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Products.aspx.designer.cs">
+      <DependentUpon>Products.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ProductStock.aspx.cs">
+      <DependentUpon>ProductStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ProductStock.aspx.designer.cs">
+      <DependentUpon>ProductStock.aspx</DependentUpon>
     </Compile>
     <Compile Include="BussinesLayer\ShoppingCart.cs" />
     <Compile Include="Admin\Category.aspx.cs">

@@ -39,7 +39,11 @@
                                 <a href="AddEditCategory.aspx">Category</a>&nbsp; 
                                 <a href="AddNewProducts.aspx">Products</a>
                                 <a href="Category.aspx">All Categories</a>
-                                <a href="#">CustomerOrders</a>
+                                <a href="Products.aspx">All Products</a>
+                                <a href="CustomerOrders.aspx">CustomerOrders</a>
+                                <a href="ProductStock.aspx">ProductStock</a>
+                                <a href="IncomeReport.aspx">IncomeReport</a>
+                                
                             </td>
                         </tr>
                     </table>

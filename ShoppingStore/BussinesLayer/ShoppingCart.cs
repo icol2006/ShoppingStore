@@ -56,6 +56,24 @@ namespace ShoppingStore.BussinesLayer
             return dt;
         }
 
+        public DataTable GetOrderList()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = DataLayer.DataAccess.AddParameter("@Flag", Flag, System.Data.SqlDbType.Int, 20);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTBByProcedure("SP_GetOrderList", parameters);
+            return dt;
+        }
+
+        public DataTable GetAvailableStock()
+        {
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = DataLayer.DataAccess.AddParameter("@StockType", StockTypes, System.Data.SqlDbType.Int, 10);
+            parameters[1] = DataLayer.DataAccess.AddParameter("@CategoryID", CategoryID, System.Data.SqlDbType.Int, 10);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTBByProcedure("SP_GetAvailableStock", parameters);
+            return dt;
+        }
+
+
         public void AddNewProduct()
         {
             SqlParameter[] parameters = new SqlParameter[6];
@@ -94,6 +112,14 @@ namespace ShoppingStore.BussinesLayer
 
             DataTable dt = DataLayer.DataAccess.ExecuteDTBByProcedure("SP_SaveCustomerProducts", parameters);
 
+            return dt;
+        }
+
+        public DataTable GetIncomeReport()
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = DataLayer.DataAccess.AddParameter("@ReportType", Flag, System.Data.SqlDbType.Int, 10);
+            DataTable dt = DataLayer.DataAccess.ExecuteDTBByProcedure("SP_GetIncomeReport", parameters);
             return dt;
         }
 

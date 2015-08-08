@@ -66,6 +66,7 @@
     <Content Include="Admin\Products.aspx" />
     <Content Include="Admin\ProductStock.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\Customer-Details.png" />
     <Content Include="Images\EmtyShoppingCart.bmp" />
     <Content Include="Images\green_star.png" />
     <Content Include="Images\icon_admin.png" />
@@ -74,6 +75,7 @@
     <Content Include="Images\shoppingCart.jpg" />
     <Content Include="Images\ShoppingCartProject.png" />
     <Content Include="OrderTemplate.htm" />
+    <Content Include="usCustomerOrder.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -153,6 +155,13 @@
     </Compile>
     <Compile Include="EmailEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usCustomerOrder.ascx.cs">
+      <DependentUpon>usCustomerOrder.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usCustomerOrder.ascx.designer.cs">
+      <DependentUpon>usCustomerOrder.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\AdminMaster.Master" />
